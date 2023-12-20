@@ -1,0 +1,199 @@
+$main-text-bg-color: hsl(300, 43%, 22%);
+$verified-buyer-color: hsl(333, 80%, 67%);
+$rating-bg: hsl(300, 24%, 96%);
+
+//CSS reset propreties
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+//Remove default margins for more control of spacings.
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+//=============================//'
+
+@mixin Flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+
+}
+
+body {
+    @include Flex(column);
+}
+
+.container {
+    max-width: 22rem;
+}
+
+.top-content {
+    h1 {
+        text-wrap: wrap;
+        font-size: 2.5rem;
+        color: $main-text-bg-color;
+    }
+
+    p {
+        opacity: 0.8;
+        padding: 24px;
+    }
+}
+
+.rating-main {
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    span {
+        font-weight: 700;
+        color: $main-text-bg-color;
+    }
+
+    .stars {
+        @include Flex(row);
+        padding-bottom: 10px;
+    }
+
+}
+
+@mixin RatingGroup() {
+    background-color: $rating-bg;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 8px;
+}
+
+.rate1,
+.rate2,
+.rate3 {
+    @include RatingGroup();
+}
+
+@mixin cardsMain() {
+    display: flex;
+    flex-direction: column;
+    background-color: $main-text-bg-color;
+    padding: 4px;
+    margin: 12px;
+    border-radius: 8px
+}
+
+.card-main {
+    @include cardsMain();
+
+    blockquote {
+        color: white;
+        text-align: left;
+        margin-bottom: 10px;
+        padding: 0;
+        margin: 24px;
+    }
+
+}
+
+figcaption {
+    
+
+    img {
+        border-radius: 1rem;
+        margin: auto;
+    }
+
+    h2 {
+        color: white;
+        font-size: 1rem;
+        padding-left: 16px;
+    }
+
+    p {
+        color: $verified-buyer-color;
+
+    }
+
+
+}
