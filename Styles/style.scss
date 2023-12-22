@@ -110,20 +110,20 @@ body {
 }
 
 .container {
-    max-width: 22rem;
+    max-width: 19rem;
 }
 
 .top-content {
     h1 {
         text-wrap: wrap;
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: $main-text-bg-color;
         padding-top: 64px;
     }
 
     p {
         opacity: 0.8;
-        padding: 24px;
+
     }
 }
 
@@ -150,7 +150,7 @@ body {
 @mixin RatingGroup() {
     background-color: $rating-bg;
     padding: 10px;
-    margin: 16px;
+    margin-bottom: 16px;
     border-radius: 8px;
 }
 
@@ -170,7 +170,7 @@ body {
     align-items: start;
     background-color: $main-text-bg-color;
     padding: 6px;
-    margin: 16px;
+    margin-bottom: 16px;
     border-radius: 8px
 }
 
@@ -182,9 +182,8 @@ body {
         text-align: left;
         margin-bottom: 10px;
         padding: 16px;
-        padding-left: 36px;
-        padding-right: 36px;
-        margin: 0;
+        padding-left: 24px;
+        padding-right: 48px;
     }
 }
 
@@ -224,27 +223,29 @@ figcaption {
     grid-template-columns: repeat($columns, 1fr);
     grid-template-rows: repeat($rows, 1fr);
     align-items: center;
+    gap: 2rem;
 
 }
 
 @media (min-width: 43.75rem) {
     .container {
-        max-width: 64rem;
+        max-width: 54rem;
     }
 
-    .top-half-container {
-        @include Grid(3, 1);
+    //Assign Grid for main element containing all web content
+    main {
+        @include Grid(4, 1);
     }
 
     .top-content {
+        grid-area: 1/1/2/3;
         text-align: left;
-
     }
 
     .rating-main {
-        grid-area: 1/2/2/4;
+        grid-area: 1/3/2/5;
 
-        .stars{
+        .stars {
             padding-right: 16px;
         }
     }
@@ -253,11 +254,26 @@ figcaption {
     .rate2,
     .rate3 {
         @include Flex(row);
+        justify-content: end;
     }
 
-    .user-reviews {
-        @include Grid(3, 1);
-      
+    .card-main {
+        margin-right: 16px;
     }
+
+
+    //Parent div of Cards Main
+    .user-reviews {
+        @include Flex(row);
+
+        grid-column-start: 1;
+        grid-column-end: 5;
+
+        .card3 {
+            margin-right: 0;
+        }
+
+    }
+
 
 }
