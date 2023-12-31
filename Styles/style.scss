@@ -132,8 +132,8 @@ figcaption {
     display: grid;
     grid-template-columns: repeat($columns, 1fr);
     grid-template-rows: repeat($rows, 1fr);
-    align-items: center;
-    gap: 2.5rem;
+
+    gap: 5rem;
 
 }
 
@@ -153,8 +153,9 @@ figcaption {
     }
 
     .rating-main {
+        position: relative;
         grid-area: 1/4/2/6;
-      
+
         .stars {
             padding-right: 16px;
         }
@@ -164,27 +165,42 @@ figcaption {
     .rate2,
     .rate3 {
         @include Flex(row);
-        
-    
+    }
+
+    .rate1 {
+        position: relative;
+        content: '';
+        right: 100px;
+
+    }
+
+    .rate2 {
+        position: relative;
+        content: '';
+        right: 50px;
+
     }
 
     .card-main {
-        margin-right: 16px;
-
+        position: relative;
+        content: '';
     }
 
 
     //Parent div of Cards Main
     .user-reviews {
         @include Flex(row);
-
         grid-column-start: 1;
         grid-column-end: 6;
+        gap: 1.5rem;
 
-        .card3 {
-            margin-right: 0;
+        .card1 {
+            bottom: 25px;
         }
 
+        .card2 {
+            bottom: 10px;
+        }
     }
 
 
